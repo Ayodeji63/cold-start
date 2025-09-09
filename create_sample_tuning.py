@@ -140,6 +140,7 @@ if __name__ == '__main__':
             candidate[negPos] = poss[0]
         if args.type != 'list':
             outLb = [candidate.index(x) for x in poss]
+            lc = [train_res_kw[x][:args.kws_for_rest] for x in candidate]
             listData.append((lu, lc, outLb))
         else:
             for ii in range(3):
