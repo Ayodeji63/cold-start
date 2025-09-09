@@ -156,22 +156,20 @@ if __name__ == '__main__':
             print(f'kws_for_user: {kws_for_user}, kws_for_rest: {kws_for_rest} \n')
             for uid in tqdm(data_user_test.keys(), total=len(data_user_test)):
                 user_kw = data_user_test[uid]['kw'][:kws_for_user]
-                if args.type == "mct":
+                if args.type != "list":
                     tmp_str, choices, tmp_str2 = cand_kw_fnMCT(uid, train_res_kw, data_user_test, map_rest_id2int, 20, kws_for_rest)
                     input_prompt = alpaca_prompt.format(', '.join(user_kw), tmp_str)
                     predicted_answer = predict_answer(model, input_prompt)
                     candidate = data_user_test[uid]['candidate']
                     answer = [candidate[ord(x)-ord('A')] for x in predicted_answer]
                     answer = [map_rest_id2int[can] for can in answer]
-                elif args.type == "list":
+                else:
                     candilist, tmp_str = cand_kw_fn_list(uid, train_res_kw, data_user_test, map_rest_id2int, 20, kws_for_rest)
                     input_prompt = list_prompt.format(', '.join(user_kw), candilist, tmp_str)
                     output = get_answerList(model, input_prompt)
                     first_line = output.strip().split("\n")[0]
                     output = [int(x) for x in re.findall(r"\d+", first_line)]
                     answer = [int(outX) for outX in output]
-                else:
-                    pass
                 user_rank[uid] = answer
 
             evalAll(user_rank, u2rs)
