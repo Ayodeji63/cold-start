@@ -3,3 +3,4 @@
 .DS_Store
 .env
 .env.local
+user_review_history.json
