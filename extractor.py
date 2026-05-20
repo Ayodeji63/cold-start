@@ -8,7 +8,7 @@ import argparse
 import shutil
 from kwExtractorHelper.utils import *
 
-CITIES_LIST = ['charlotte', 'edinburgh', 'lasvegas', 'london', 'phoenix', 'pittsburgh', 'singapore', 'tripadvisor']
+CITIES_LIST = ['charlotte', 'edinburgh', 'lasvegas', 'london', 'phoenix', 'pittsburgh', 'singapore', 'amazonBaby', 'amazonVideo', 'naija_yelp', 'naija_yelp_cold_start', 'naija_yelp_paper']
 
 
 parser = argparse.ArgumentParser()
@@ -166,4 +166,3 @@ if args.edgeType == "IRF":
     name3 = "tf_irf"
 shutil.move(f"./data/preprocessed/by_city-users_min_3_reviews/keywords_{name1}/{city}-keywords.json", f"./data/score/{city}-keywords-frequency.json")
 shutil.move(f"./data/preprocessed/by_city-users_min_3_reviews/user_to_keywords/{name3}/train/{city}-keywords.json", f"./data/score/{city}-keywords-{name2}.json")
-

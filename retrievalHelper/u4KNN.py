@@ -18,9 +18,11 @@ class neighbor4kw(object):
         self.testDat = testDat
         self.test_users, self.test_users2kw = extract_users(testDat['np2users'])
         self.kw_testData = [x for x in testDat['np2count']]
+        self.kw_test_index = {kw: idx for idx, kw in enumerate(self.kw_testData)}
         self.restGraph = restGraph
         self.trainDat, self.keywordScore = restGraph.data, restGraph.keywordScore
         self.kw_data = restGraph.kw_data
+        self.kw_index = {kw: idx for idx, kw in enumerate(self.kw_data)}
         self.rest_train_data =  restGraph.rests
 
     def get_topK_Key(self, testkey):
@@ -41,7 +43,7 @@ class neighbor4kw(object):
 
 
     def get_testEmb(self, tk):
-        pos = self.kw_testData.index(tk)
+        pos = self.kw_test_index[tk]
         return self.kwEB_pad_test[pos]
 
     def loadFT(self, numKW4FT, rest_Label, city):
@@ -78,7 +80,7 @@ class neighbor4kw(object):
             restFT.append([])
             rest_kw.append([])
             for kw, score in listrest_kw:
-                emID = self.kw_data.index(kw)
+                emID = self.kw_index[kw]
                 emKW = self.kwEB_pad[emID]
                 restFT[-1].append(emKW)
                 rest_kw[-1].append(kw)
@@ -113,7 +115,7 @@ class neighbor4kw(object):
             topK_Key, keyfrequency = self.restGraph.retrievalKey(testkey)
             ft = []
             for ii in range(min(len(topK_Key), numKW4FT)):
-                emID = self.kw_data.index(topK_Key[ii])
+                emID = self.kw_index[topK_Key[ii]]
                 ft.append(self.kwEB_pad[emID])
             while (len(ft) < numKW4FT):
                 ft.append(np.zeros(384))

@@ -19,3 +19,31 @@ Pre@20: 0.11374663072776281, Recall@20:0.309237028573514, F1@20:0.15396187850023
 args: Namespace(city='amazonVideo', quantity=20, seed=1001, edgeType='IUF', logResult='./log', export2LLMs=True, RetModel='MPG', numKW4FT=20, validTopK=20)
 Pre@20: 0.09921875000000001, Recall@20:0.19879286052921905, F1@20:0.12126573191255803, NDCG@20:0.33881320485173
 ********** End **********
+********** Result **********
+args: Namespace(city='singapore', quantity=20, seed=1001, edgeType='IUF', logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=True)
+Pre@20: 0.08223350253807106, Recall@20:0.2817985367180421, F1@20:0.11386552169104286, NDCG@20:0.3367500998403033
+********** End **********
+********** Result **********
+args: Namespace(city='naija_yelp', quantity=20, seed=1001, edgeType='IUF', groundtruth_file='data/reviews/naija_yelp_holdout.csv', logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=True)
+Pre@20: 0.004781704781704781, Recall@20:0.09563409563409564, F1@20:0.009108009108009107, NDCG@20:0.030986669987675932
+********** End **********
+********** Result **********
+args: Namespace(city='naija_yelp', quantity=100, seed=1001, edgeType='IUF', groundtruth_file='data/reviews/naija_yelp_holdout.csv', logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=True)
+Pre@20: 0.0021309771309771307, Recall@20:0.04261954261954262, F1@20:0.004059004059004059, NDCG@20:0.013776727398242743
+********** End **********
+********** Result **********
+args: Namespace(city='naija_yelp', quantity=100, seed=1001, edgeType='IUF', groundtruth_file='data/reviews/naija_yelp_holdout.csv', logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=True)
+Pre@20: 0.0021309771309771307, Recall@20:0.04261954261954262, F1@20:0.004059004059004059, NDCG@20:0.014515170163957116
+********** End **********
+********** Result **********
+args: Namespace(city='naija_yelp', quantity=100, seed=1001, edgeType='IUF', groundtruth_file='data/reviews/naija_yelp_holdout.csv', logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=True)
+Pre@20: 0.0021309771309771307, Recall@20:0.04261954261954262, F1@20:0.004059004059004059, NDCG@20:0.016037798936583837
+********** End **********
+********** Result **********
+args: Namespace(city='naija_yelp_paper', quantity=20, seed=1001, edgeType='IUF', groundtruth_file=None, logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=False)
+Pre@20: 0.14516632016632014, Recall@20:0.3269918968843473, F1@20:0.18496087563296557, NDCG@20:0.6112714284841368
+********** End **********
+********** Result **********
+args: Namespace(city='naija_yelp_paper', quantity=50, seed=1001, edgeType='IUF', groundtruth_file=None, logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=False)
+Pre@20: 0.13674636174636176, Recall@20:0.29073401333334714, F1@20:0.17072185307971727, NDCG@20:0.5502376325300999
+********** End **********

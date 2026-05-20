@@ -13,13 +13,14 @@ device = torch.device('cuda' if GPU else "cpu")
 random_seed = 1001
 setSeed(random_seed)
 
-listcity = ['edinburgh', 'london','singapore', 'tripAdvisor', 'amazonBaby', 'amazonVideo',]
+listcity = ['edinburgh', 'london', 'singapore', 'amazonBaby', 'amazonVideo', 'naija_yelp', 'naija_yelp_cold_start', 'naija_yelp_paper']
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--city', type=str, default='edinburgh', help=f'choose city{listcity}')
-parser.add_argument('--quantity', type=int, default=20, help='number of keyword retrieval')
+parser.add_argument('--quantity', type=int, default=100, help='number of keyword retrieval')
 parser.add_argument('--seed', type=int, default=1001, help='number of keyword retrieval')
 parser.add_argument('--edgeType', type=str, default='IUF', help='weight score for keyword')
+parser.add_argument('--groundtruth_file', type=str, default=None, help='optional holdout labels csv for evaluation')
 
 '''
 Export args
@@ -33,27 +34,33 @@ Model args
 '''
 parser.add_argument('--numKW4FT', type=int, default=20, help='number of keyword for feature')
 parser.add_argument('--validTopK', type=int, default=20, help='number of keyword for feature')
-parser.add_argument('--tuningData', type=bool, default=True, help='Tuning Data')
+parser.add_argument('--tuningData', action='store_true', help='also export retrievalSample tuning data for train users')
 
 
 args = parser.parse_args()
 
 print("args:", args)
-print("Starting time: ", time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
+print("Starting time: ", time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())), flush=True)
 print("Loading training keyword")
 trainDat, testDat = data_reviewLoader(args.city)
 train_users, train_users2kw = extract_users(trainDat['np2users'])
 test_users, test_users2kw = extract_users(testDat['np2users'])
+print(f"Loaded {len(train_users)} train users, {len(test_users)} test users", flush=True)
 
 # extract user2rest for label
-gt = load_groundTruth(f'./data/reviews/{args.city}.csv')
+gt_file = args.groundtruth_file or f'./data/reviews/{args.city}.csv'
+gt = load_groundTruth(gt_file)
 # load edgeType
 
-
+print("Loading keyword scores", flush=True)
 keywordScore, keywordFrequence = load_kwScore(args.city, args.edgeType)
+print(f"Loaded keyword scores for {len(keywordScore)} restaurants/items", flush=True)
+print("Building restaurant-keyword graph", flush=True)
 restGraph = retaurantReviewG([trainDat, keywordScore, keywordFrequence, \
                                 args.quantity,  args.edgeType, gt])
+print(f"Graph has {restGraph.numRest} restaurants/items and {len(restGraph.kw_data)} keywords", flush=True)
 
+print("Loading KNN keyword embeddings", flush=True)
 KNN = neighbor4kw(f'{args.city}_kwSenEB_pad', testDat,  restGraph)
 rest_Label = getRestLB(trainDat['np2rests'])
 sourceFile = open(args.logResult, 'a')
@@ -69,13 +76,19 @@ print("using MPG")
 print("*"*50)
 l_rest = restGraph.listRestCode
 kw_data = KNN.kw_data
+rest_index = {rest: idx for idx, rest in enumerate(l_rest)}
+kw_index = {kw: idx for idx, kw in enumerate(kw_data)}
 lu, li, lh = list([]), list([]), list([])
 for rest in tqdm(keywordScore):
     kw_scs = keywordScore[rest]
-    u = l_rest.index(rest)
+    if rest not in rest_index:
+        continue
+    u = rest_index[rest]
     tmpI, tmpH = [], []
     for kw, sc in kw_scs:
-        tmpI.append(kw_data.index(kw))
+        if kw not in kw_index:
+            continue
+        tmpI.append(kw_index[kw])
         tmpH.append(sc)
     tmpU = [u] * len(tmpI)
     lu.extend(tmpU)
@@ -100,7 +113,7 @@ if args.city=='tripAdvisor':
 for ite in tqdm(range(len(test_users))):
     idx = lidx[ite]
     testUser, topK_Key, keyfrequency, topUser = procesTest(test_users, test_users2kw, idx, KNN, restGraph, args.export2LLMs)
-    testkey = [kw_data.index(x) for x in topK_Key]
+    testkey = [kw_index[x] for x in topK_Key if x in kw_index]
     ft = np.zeros(len(kw_data))
     for x in testkey: ft[x] = 1.0
     ft = ft.reshape(-1, 1)
@@ -122,9 +135,10 @@ for ite in tqdm(range(len(test_users))):
 if args.export2LLMs:
     trainUwithCandi = {}
     listsimU = list(set(train_users))
+    train_user_index = {user: idx for idx, user in enumerate(train_users)}
     # listsimU = list(set(listsimU))
     for idx in tqdm(range(len(listsimU))):
-        userIdx = train_users.index(listsimU[idx])
+        userIdx = train_user_index[listsimU[idx]]
         user_key = train_users2kw[userIdx]
         topK_Key, keyfrequency = restGraph.retrievalKey(user_key)
         tmp = {}
@@ -177,14 +191,6 @@ if args.tuningData:
 
 
 print("End time: ", time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
-
-
-
-
-
-
-
-
 
 
 

@@ -1,0 +1,61 @@
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv"}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv"}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyAT8OIKgw8AZUYkLO38mxMhg6EEDW8OEPo", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyAT8OIKgw8AZUYkLO38mxMhg6EEDW8OEPo", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyAT8OIKgw8AZUYkLO38mxMhg6EEDW8OEPo", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyC5WNTlkb3HM0Q1Si2qZa2Y2YOdqZEaXgo", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyC5WNTlkb3HM0Q1Si2qZa2Y2YOdqZEaXgo", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyC5WNTlkb3HM0Q1Si2qZa2Y2YOdqZEaXgo", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyC5WNTlkb3HM0Q1Si2qZa2Y2YOdqZEaXgo", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyC5WNTlkb3HM0Q1Si2qZa2Y2YOdqZEaXgo", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyC5WNTlkb3HM0Q1Si2qZa2Y2YOdqZEaXgo", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": "data/reviews/naija_yelp_holdout.csv", "metadata_file": "data/metadata/naija_yelp_restaurant_detail.csv", "request_delay": 4.5, "max_users": null}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+{'zeroshot': {3: {5: {'prec': [0.0031185031185031187, 0.002772002772002772, 0.002286902286902287, 0.0024948024948024945, 0.002217602217602218, 0.002208939708939709], 'recall': [0.0031185031185031187, 0.008316008316008316, 0.011434511434511435, 0.02494802494802495, 0.033264033264033266, 0.033264033264033266], 'f1': [0.0031185031185031187, 0.004158004158004158, 0.003811503811503812, 0.0045360045360045365, 0.004158004158004158, 0.004142717378011496], 'ndcg': [0.0031185031185031187, 0.005741911657261777, 0.0071755246270671655, 0.010652318004919488, 0.012740201599915795, 0.012731152960390004]}}}}

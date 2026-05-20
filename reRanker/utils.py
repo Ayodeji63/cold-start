@@ -142,21 +142,26 @@ def quick_eval(preds, gt, hotel = False):
     if hotel:
         gt_list = set([str(a[0]) for a in gt])
 
-    preds_list = list(set(preds))
+    preds_list = []
+    for pred in preds:
+        if pred not in preds_list:
+            preds_list.append(pred)
     ov = gt_list.intersection(preds_list)
+    if len(preds_list) == 0:
+        return 0, 0, 0, 0
     prec = len(ov)/len(preds_list)
     rec = len(ov)/len(gt_list)
     f1 = 0 if prec+rec == 0 else 2*prec*rec/(prec+rec)
 
-    truth_relevant = np.asarray([[0]*len(preds)])
-    if len(preds) == 1:
+    truth_relevant = np.asarray([[0]*len(preds_list)])
+    if len(preds_list) == 1:
         ndcg = len(ov)/len(preds_list)
         return prec, rec, f1, ndcg
     for candidate in ov:
         idx = preds_list.index(candidate)
         truth_relevant[0,idx] = 1
 
-    score = np.asarray([[x+1 for x in range(len(preds))][::-1]])
+    score = np.asarray([[x+1 for x in range(len(preds_list))][::-1]])
     ndcg = ndcg_score(truth_relevant, score)
     return prec, rec, f1, ndcg
 

@@ -25,6 +25,7 @@ class retaurantReviewG(object):
 
         # self.l_user, self.user2kw= extract_users(self.data['np2users'])
         self.listUserCode, self.user2kw= extract_users(self.data['np2users'])
+        self.user_index = {user: idx for idx, user in enumerate(self.listUserCode)}
 
         self.users = self.data['np2users']
         self.kw_data = [x for x in self.data['np2count']]
@@ -177,7 +178,7 @@ class retaurantReviewG(object):
             listUser = self.users[key]
             for user in listUser:
                 value = score[counter]*(listUser[user])
-                userid = self.listUserCode.index(user)
+                userid = self.user_index[user]
                 fullScore[userid] += value
             counter += 1
         '''
@@ -189,7 +190,6 @@ class retaurantReviewG(object):
         --> top numReturn similar users 
         '''
         return result
-
 
 
 
