@@ -443,7 +443,7 @@ def zeroshot(model, type_llm, data_user_test,  map_rest_id2int, new_results_res_
 
 
 if __name__ == '__main__':
-    listcity = ['edinburgh', 'london', 'singapore', 'amazonBaby', 'amazonVideo', 'naija_yelp', 'naija_yelp_cold_start', 'naija_yelp_paper']
+    listcity = ['edinburgh', 'london', 'singapore', 'amazonGrocery', 'amazonBaby', 'amazonVideo', 'naija_yelp', 'naija_yelp_cold_start', 'naija_yelp_paper']
     parser = argparse.ArgumentParser('LLM re-ranking RecSys')
     parser.add_argument('--type_method', type=str, default= 'zeroshot', help='zeroshot, 1_shot, 2_shots, 3_shots')
     parser.add_argument('--num_kws_user', type=int, default= 3)
@@ -453,6 +453,8 @@ if __name__ == '__main__':
     parser.add_argument('--api_key', type=str, default=None, help='API key')
     parser.add_argument('--groundtruth_file', type=str, default=None, help='optional holdout labels csv for evaluation')
     parser.add_argument('--metadata_file', type=str, default=None, help='optional restaurant metadata csv for reranking')
+    parser.add_argument('--test_candidate_file', type=str, default=None, help='optional data/out2LLMs test candidate json')
+    parser.add_argument('--train_candidate_file', type=str, default=None, help='optional data/out2LLMs train candidate json for few-shot samples')
     parser.add_argument('--request_delay', type=float, default=4.5, help='seconds to sleep before each LLM request')
     parser.add_argument('--max_users', type=int, default=None, help='optional cap for smoke tests or budgeted runs')
     parser.add_argument('--rerank_top_k', type=int, default=20, help='number of items the LLM should return')
@@ -475,9 +477,11 @@ if __name__ == '__main__':
 
     ### Load data
     city = args.city
-    data_user_test = read_json(f"data/out2LLMs/{args.city}_knn2rest.json")
+    test_candidate_file = args.test_candidate_file or f"data/out2LLMs/{args.city}_knn2rest.json"
+    train_candidate_file = args.train_candidate_file or f"data/out2LLMs/{args.city}_user2candidate.json"
+    data_user_test = read_json(test_candidate_file)
     rest_kws = read_json(f"data/score/{args.city}-keywords-TFIUF.json")
-    user_kws_train = read_json(f'data/out2LLMs/{args.city}_user2candidate.json') #user-train
+    user_kws_train = read_json(train_candidate_file) #user-train
 
     
     ## review filesS

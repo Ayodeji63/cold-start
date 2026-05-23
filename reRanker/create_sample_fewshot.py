@@ -7,7 +7,7 @@ def load_split(sfile, setname='test'):
     return json.load(open(sfile))
 
 if __name__ == '__main__':
-    listcity = ['edinburgh', 'london', 'singapore', "amazonBaby", "amazonVideo", "naija_yelp", "naija_yelp_cold_start", "naija_yelp_paper"]    
+    listcity = ['edinburgh', 'london', 'singapore', "amazonGrocery", "amazonBaby", "amazonVideo", "naija_yelp", "naija_yelp_cold_start", "naija_yelp_paper"]    
     parser = argparse.ArgumentParser('sample for few shots')
     parser.add_argument('--city', type=str, default='singapore', help=f'choose city{listcity}')
     args = parser.parse_args()
@@ -17,7 +17,7 @@ if __name__ == '__main__':
     city_split = f'./data/reviews/{city}_splits.json'
     if os.path.isfile(city_split):
         sfile = city_split
-    elif city in ["tripAdvisor", "amazonBaby", "amazonVideo"]:
+    elif city in ["tripAdvisor", "amazonGrocery", "amazonBaby", "amazonVideo"]:
         sfile = f'./data/reviews/{city}_splits.json'
     elif not os.path.isfile(sfile) and os.path.isfile('./splits.json'):
         sfile = './splits.json'

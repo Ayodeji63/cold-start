@@ -47,3 +47,27 @@ Pre@20: 0.14516632016632014, Recall@20:0.3269918968843473, F1@20:0.1849608756329
 args: Namespace(city='naija_yelp_paper', quantity=50, seed=1001, edgeType='IUF', groundtruth_file=None, logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=False)
 Pre@20: 0.13674636174636176, Recall@20:0.29073401333334714, F1@20:0.17072185307971727, NDCG@20:0.5502376325300999
 ********** End **********
+********** Result **********
+args: Namespace(city='naija_yelp_paper', quantity=20, seed=1001, edgeType='IUF', groundtruth_file=None, logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=False)
+Pre@20: 0.14516632016632014, Recall@20:0.3269918968843473, F1@20:0.18496087563296557, NDCG@20:0.6112714284841368
+********** End **********
+********** Result **********
+args: Namespace(city='amazonGrocery', quantity=20, seed=1001, edgeType='IUF', groundtruth_file=None, logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=False)
+Pre@20: 0.007963354474982382, Recall@20:0.022153084013291517, F1@20:0.011219969465477807, NDCG@20:0.07027639170263664
+********** End **********
+********** Result **********
+args: Namespace(city='amazonGrocery', quantity=20, seed=1001, edgeType='IUF', groundtruth_file=None, logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=False)
+Pre@20: 0.03572938689217759, Recall@20:0.09911593212631876, F1@20:0.050132207359394984, NDCG@20:0.3207526536519255
+********** End **********
+********** Result **********
+args: Namespace(city='amazonGrocery_dense', quantity=20, seed=1001, edgeType='IUF', groundtruth_file=None, logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=False)
+Pre@20: 0.06282051282051282, Recall@20:0.20032088637857867, F1@20:0.09398078721547316, NDCG@20:0.38023850765206546
+********** End **********
+********** Result **********
+args: Namespace(city='amazonGrocery_dense', quantity=20, seed=1001, edgeType='IUF', groundtruth_file=None, logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=False)
+Pre@20: 0.06682692307692309, Recall@20:0.1749808830363156, F1@20:0.0899563057214258, NDCG@20:0.44595362069523475
+********** End **********
+********** Result **********
+args: Namespace(city='amazonGrocery', quantity=20, seed=1001, edgeType='IUF', groundtruth_file=None, logResult='./log', export2LLMs=True, numKW4FT=20, validTopK=20, tuningData=False)
+Pre@20: 0.03572938689217759, Recall@20:0.09911593212631876, F1@20:0.050132207359394984, NDCG@20:0.3207526536519255
+********** End **********

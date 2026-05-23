@@ -12,12 +12,12 @@ REVIEW_COLUMN_ALIASES = {
     "user_id": ["user_id", "reviewerID", "reviewer_id", "user"],
     "rest_id": ["rest_id", "asin", "parent_asin", "item_id", "product_id"],
     "rating": ["rating", "overall", "stars"],
-    "text": ["text", "reviewText", "review_text", "body"],
+    "text": ["full_text", "text", "reviewText", "review_text", "body"],
     "date": ["date", "reviewTime", "timestamp", "unixReviewTime"],
 }
 
 METADATA_COLUMN_ALIASES = {
-    "rest_id": ["rest_id", "asin", "parent_asin", "item_id", "product_id"],
+    "rest_id": ["rest_id", "business_id", "asin", "parent_asin", "item_id", "product_id"],
     "title": ["title", "name", "product_title"],
     "categories": ["categories", "category", "main_category"],
     "brand": ["brand"],
@@ -110,6 +110,93 @@ def split_users(review_df, train_ratio, dev_ratio, seed):
     }
 
 
+def filter_by_category(raw_df, category_contains):
+    if not category_contains:
+        return raw_df
+    category_col = first_present(raw_df, METADATA_COLUMN_ALIASES["categories"])
+    title_col = first_present(raw_df, METADATA_COLUMN_ALIASES["title"])
+    if category_col is None and title_col is None:
+        raise ValueError("--category_contains was provided, but no category/title column exists.")
+
+    text = pd.Series("", index=raw_df.index, dtype="object")
+    if category_col is not None:
+        text = text + " " + raw_df[category_col].fillna("").astype(str)
+    if title_col is not None:
+        text = text + " " + raw_df[title_col].fillna("").astype(str)
+
+    terms = [term.lower() for term in category_contains]
+    mask = text.str.lower().map(lambda value: any(term in value for term in terms))
+    return raw_df[mask].copy()
+
+
+def filter_reviews_by_metadata_category(raw_reviews, raw_meta, category_contains):
+    if not category_contains:
+        return raw_reviews
+
+    review_item_col = first_present(raw_reviews, REVIEW_COLUMN_ALIASES["rest_id"])
+    meta_item_col = first_present(raw_meta, METADATA_COLUMN_ALIASES["rest_id"])
+    category_col = first_present(raw_meta, METADATA_COLUMN_ALIASES["categories"])
+    title_col = first_present(raw_meta, METADATA_COLUMN_ALIASES["title"])
+
+    if review_item_col is None or meta_item_col is None:
+        raise ValueError("--category_contains needs item ids in both reviews and metadata.")
+    if category_col is None and title_col is None:
+        raise ValueError("--category_contains was provided, but no category/title column exists in reviews or metadata.")
+
+    text = pd.Series("", index=raw_meta.index, dtype="object")
+    if category_col is not None:
+        text = text + " " + raw_meta[category_col].fillna("").astype(str)
+    if title_col is not None:
+        text = text + " " + raw_meta[title_col].fillna("").astype(str)
+
+    terms = [term.lower() for term in category_contains]
+    keep_mask = text.str.lower().map(lambda value: any(term in value for term in terms))
+    keep_items = set(raw_meta.loc[keep_mask, meta_item_col].astype(str))
+    return raw_reviews[raw_reviews[review_item_col].astype(str).isin(keep_items)].copy()
+
+
+def filter_dense_items(review_df, min_item_reviews):
+    if min_item_reviews <= 1:
+        return review_df
+    item_counts = review_df.groupby("rest_id").size()
+    keep_items = item_counts[item_counts >= min_item_reviews].index
+    return review_df[review_df["rest_id"].isin(keep_items)].copy()
+
+
+def filter_top_items(review_df, max_items):
+    if not max_items:
+        return review_df
+    top_items = review_df["rest_id"].value_counts().head(max_items).index
+    return review_df[review_df["rest_id"].isin(top_items)].copy()
+
+
+def filter_dense_users(review_df, min_reviews):
+    if min_reviews <= 1:
+        return review_df
+    user_counts = review_df.groupby("user_id").size()
+    keep_users = user_counts[user_counts >= min_reviews].index
+    return review_df[review_df["user_id"].isin(keep_users)].copy()
+
+
+def filter_k_core(review_df, min_user_reviews, min_item_reviews):
+    if min_user_reviews <= 1 and min_item_reviews <= 1:
+        return review_df
+
+    filtered = review_df.copy()
+    while True:
+        before = len(filtered)
+        if min_item_reviews > 1:
+            item_counts = filtered.groupby("rest_id").size()
+            keep_items = item_counts[item_counts >= min_item_reviews].index
+            filtered = filtered[filtered["rest_id"].isin(keep_items)].copy()
+        if min_user_reviews > 1:
+            user_counts = filtered.groupby("user_id").size()
+            keep_users = user_counts[user_counts >= min_user_reviews].index
+            filtered = filtered[filtered["user_id"].isin(keep_users)].copy()
+        if len(filtered) == before:
+            return filtered
+
+
 def normalize_metadata(raw_meta, review_df, dataset_name):
     source_cols = {
         target: first_present(raw_meta, aliases)
@@ -117,6 +204,8 @@ def normalize_metadata(raw_meta, review_df, dataset_name):
     }
     if source_cols["rest_id"] is None:
         raise ValueError(f"Missing product id column in metadata. Available columns: {list(raw_meta.columns)}")
+
+    raw_meta = raw_meta.drop_duplicates(subset=[source_cols["rest_id"]]).copy()
 
     meta = pd.DataFrame()
     meta["business_id"] = raw_meta[source_cols["rest_id"]].astype(str)
@@ -169,22 +258,34 @@ def main():
     parser.add_argument("--dataset_name", required=True, help="Example: amazonBaby or amazonVideo")
     parser.add_argument("--out_dir", default="data")
     parser.add_argument("--min_reviews", type=int, default=5)
+    parser.add_argument("--min_item_reviews", type=int, default=1, help="Keep only items with at least this many reviews")
+    parser.add_argument("--max_items", type=int, help="Keep only the most-reviewed N items after other filters")
+    parser.add_argument("--category_contains", nargs="+", help="Keep rows whose category/title contains any of these terms")
     parser.add_argument("--train_ratio", type=float, default=0.8)
     parser.add_argument("--dev_ratio", type=float, default=0.1)
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
 
     raw_reviews = read_table(args.reviews)
+    raw_meta = read_table(args.metadata) if args.metadata else None
+    if args.category_contains:
+        try:
+            raw_reviews = filter_by_category(raw_reviews, args.category_contains)
+        except ValueError:
+            if raw_meta is None:
+                raise
+            raw_reviews = filter_reviews_by_metadata_category(raw_reviews, raw_meta, args.category_contains)
     review_df = normalize_reviews(raw_reviews, args.dataset_name)
-    user_counts = review_df.groupby("user_id").size()
-    keep_users = user_counts[user_counts >= args.min_reviews].index
-    review_df = review_df[review_df["user_id"].isin(keep_users)].copy()
+    review_df = filter_top_items(review_df, args.max_items)
+    review_df = filter_k_core(review_df, args.min_reviews, args.min_item_reviews)
+
+    if review_df.empty:
+        raise ValueError("No reviews remain after filtering. Relax --min_reviews, --min_item_reviews, --max_items, or --category_contains.")
 
     splits = split_users(review_df, args.train_ratio, args.dev_ratio, args.seed)
 
     metadata_df = None
-    if args.metadata:
-        raw_meta = read_table(args.metadata)
+    if raw_meta is not None:
         metadata_df = normalize_metadata(raw_meta, review_df, args.dataset_name)
 
     review_path, split_path, meta_path = write_outputs(

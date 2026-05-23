@@ -13,7 +13,7 @@ device = torch.device('cuda' if GPU else "cpu")
 random_seed = 1001
 setSeed(random_seed)
 
-listcity = ['edinburgh', 'london', 'singapore', 'amazonBaby', 'amazonVideo', 'naija_yelp', 'naija_yelp_cold_start', 'naija_yelp_paper']
+listcity = ['amazonGrocery', 'amazonBaby', 'amazonVideo', 'naija_yelp', 'naija_yelp_cold_start', 'naija_yelp_paper']
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--city', type=str, default='edinburgh', help=f'choose city{listcity}')
@@ -148,11 +148,19 @@ if args.export2LLMs:
 
     json_object = json.dumps(trainUwithCandi, indent=4)
     mkdir("./data/out2LLMs/")
-    with open(f"./data/out2LLMs/{args.city}_user2candidate.json", "w") as outfile:
+    train_candidate_path = f"./data/out2LLMs/{args.city}_user2candidate.json"
+    train_candidate_quantity_path = f"./data/out2LLMs/{args.city}_q{args.quantity}_user2candidate.json"
+    with open(train_candidate_path, "w") as outfile:
+        outfile.write(json_object)
+    with open(train_candidate_quantity_path, "w") as outfile:
         outfile.write(json_object)
     json_object = json.dumps(dictionary, indent=4)
-    with open(f"./data/out2LLMs/{args.city}_knn2rest.json", "w") as outfile:
-        outfile.write(json_object) 
+    test_candidate_path = f"./data/out2LLMs/{args.city}_knn2rest.json"
+    test_candidate_quantity_path = f"./data/out2LLMs/{args.city}_q{args.quantity}_knn2rest.json"
+    with open(test_candidate_path, "w") as outfile:
+        outfile.write(json_object)
+    with open(test_candidate_quantity_path, "w") as outfile:
+        outfile.write(json_object)
 p, r, f, n = extractResult(lResults)
 
 print("args:", args, file = sourceFile)
@@ -191,7 +199,6 @@ if args.tuningData:
 
 
 print("End time: ", time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
-
 
 
 

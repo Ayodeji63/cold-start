@@ -47,6 +47,17 @@ def filter_holdout_by_split(holdout_df, splits_file, dataset_name, split_name):
     return holdout_df[holdout_df["user_id"].isin(users)].copy()
 
 
+def filter_history_by_split(history_df, splits_file, dataset_name, split_name):
+    if not splits_file or split_name is None:
+        return history_df
+    with open(splits_file, "r") as f:
+        splits = json.load(f)
+    if dataset_name is None:
+        dataset_name = next(iter(splits))
+    users = set(splits[dataset_name][split_name])
+    return history_df[history_df["user_id"].isin(users)].copy()
+
+
 def evaluate(truth, rankings_by_user, k):
     ndcgs = []
     hits = []
@@ -66,10 +77,12 @@ def main():
     parser.add_argument("--splits", help="Optional splits json for train/dev/test filtering")
     parser.add_argument("--dataset_name", help="Dataset key inside --splits")
     parser.add_argument("--split", default="test", help="Split name to evaluate when --splits is provided")
+    parser.add_argument("--history_split", help="Optional split name to use for building popularity/random item universe")
     args = parser.parse_args()
 
     history_df = pd.read_csv(args.history)
     holdout_df = pd.read_csv(args.holdout)
+    history_df = filter_history_by_split(history_df, args.splits, args.dataset_name, args.history_split)
     holdout_df = filter_holdout_by_split(holdout_df, args.splits, args.dataset_name, args.split)
     truth = build_groundtruth(holdout_df)
 

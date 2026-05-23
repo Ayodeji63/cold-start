@@ -218,3 +218,61 @@ Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
 
 {"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
 Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyA5JX3Jgt0x6Ufvqkkycb5NIVVxixHT6ok", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyAFcTs996bB44KzHANw4Ge36J_DOknhqx4", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyAFcTs996bB44KzHANw4Ge36J_DOknhqx4", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyAFcTs996bB44KzHANw4Ge36J_DOknhqx4", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyAFcTs996bB44KzHANw4Ge36J_DOknhqx4", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyAFcTs996bB44KzHANw4Ge36J_DOknhqx4", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCJqgjlOrHnQ9DyP44FDtrV9UPPIAOQ-Kw", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyAnHBHpOShp9S4gIn20we31gSJHjLiEq_Y", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+
+{"type_method": "zeroshot", "num_kws_user": 3, "num_kws_rest": 5, "city": "naija_yelp_paper", "type_LLM": "gemini_pro", "api_key": "AIzaSyCYHVTT3YU17Qw1tNs0xna2sbO1obZXLk0", "groundtruth_file": null, "metadata_file": "data/metadata/naija_yelp_paper_restaurant_detail.csv", "request_delay": 4.5, "max_users": 962, "rerank_top_k": 20, "candidate_pool_k": 50, "rerank_mode": "scored", "hybrid_alpha": 0.6, "allow_pool_replacement": false}
+Method: zeroshot, number of user keyword: 3, number of rest keyword: 5
+{'zeroshot': {3: {5: {'prec': [0.4501039501039501, 0.31011781011781014, 0.24740124740124744, 0.1864864864864865, 0.15897435897435896, 0.13674636174636176], 'recall': [0.05707754497011048, 0.11059823562962538, 0.14352158374387433, 0.20638698864647237, 0.25700613078762197, 0.29073401333334714], 'f1': [0.09831357080294918, 0.1540012064261589, 0.1688792853850306, 0.17968355875222564, 0.18000190436172794, 0.17072185307971727], 'ndcg': [0.4501039501039501, 0.5610133670966934, 0.5744030301769727, 0.5786961159989303, 0.570447009570879, 0.5646930134314925]}}}}

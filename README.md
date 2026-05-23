@@ -4,6 +4,25 @@
 <img src="./imgs/0.png" alt="ALM4Res" />
 </p>
 
+## Project Adaptation Notes
+
+For the Nigerian-focused Yelp restaurant, Amazon cross-domain, cold-start methodology, and Chapter 3/4 experimental write-up, see:
+
+- [docs/chapter_3_4_readme.md](docs/chapter_3_4_readme.md)
+- [docs/task_b_kalm4rec_naija.md](docs/task_b_kalm4rec_naija.md)
+- [docs/submission_api.md](docs/submission_api.md)
+
+## Containerized Task B API
+
+Build and run the persona recommendation API:
+
+```bash
+docker build -t naijarec-coldstart .
+docker run --rm -p 8001:8001 naijarec-coldstart
+```
+
+Then open `http://localhost:8001/docs` or call `POST /recommend`.
+
 ## Dependencies
 ```
 spacy, DGL, 
